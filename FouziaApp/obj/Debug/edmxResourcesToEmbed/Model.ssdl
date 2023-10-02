@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fouziaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="appealCouncilOfState_tbl">
+    <Key>
+      <PropertyRef Name="appealID" />
+    </Key>
+    <Property Name="appealID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateOfAppeal" Type="date" />
+    <Property Name="appealNum" Type="int" />
+    <Property Name="dateOfReport" Type="date" />
+    <Property Name="reportNum" Type="int" />
+    <Property Name="judgmentOfAppeal" Type="nvarchar(max)" />
+    <Property Name="caseID" Type="int" />
+  </EntityType>
+  <EntityType Name="appealSupremeCourt_tbl">
+    <Key>
+      <PropertyRef Name="appealID" />
+    </Key>
+    <Property Name="appealID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateOfAppeal" Type="date" />
+    <Property Name="appealNum" Type="int" />
+    <Property Name="dateOfReoprt" Type="date" />
+    <Property Name="reportNum" Type="int" />
+    <Property Name="judgmentOfAppeal" Type="nvarchar(max)" />
+    <Property Name="caseID" Type="int" />
+  </EntityType>
+  <EntityType Name="case_tbl">
+    <Key>
+      <PropertyRef Name="caseID" />
+    </Key>
+    <Property Name="caseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="caseNum" Type="int" />
+    <Property Name="dateOfTheOpenPetition" Type="date" />
+    <Property Name="dateOfTheReply" Type="date" />
+    <Property Name="dateOfTheJudgment" Type="date" />
+    <Property Name="judgment" Type="nvarchar(max)" />
+    <Property Name="finished" Type="bit" />
+    <Property Name="dateOfTheExpertsCall" Type="date" />
+    <Property Name="dateOfReplyToTheExpert" Type="date" />
+    <Property Name="csID" Type="int" />
+    <Property Name="serviceID" Type="int" />
+    <Property Name="rcID" Type="int" />
+    <Property Name="filePath" Type="nvarchar(max)" />
+    <Property Name="JOCID" Type="int" />
+  </EntityType>
+  <EntityType Name="caseSubject_tbl">
+    <Key>
+      <PropertyRef Name="csID" />
+    </Key>
+    <Property Name="csID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="csSec" Type="int" />
+    <Property Name="csIlot" Type="int" />
+    <Property Name="csLot" Type="int" />
+    <Property Name="csAdress" Type="nvarchar(max)" />
+    <Property Name="csTown" Type="nvarchar" MaxLength="50" />
+    <Property Name="recordID" Type="int" />
+    <Property Name="catSubID" Type="int" />
+  </EntityType>
+  <EntityType Name="catSub_tbl">
+    <Key>
+      <PropertyRef Name="catSubID" />
+    </Key>
+    <Property Name="catSubID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="catSubName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="judgmentOnTheCase_tbl">
+    <Key>
+      <PropertyRef Name="JOCID" />
+    </Key>
+    <Property Name="JOCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JOCName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="partiesToTheConflict_tbl">
+    <Key>
+      <PropertyRef Name="PTCID" />
+    </Key>
+    <Property Name="PTCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PTCName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="persons_tbl">
+    <Key>
+      <PropertyRef Name="personID" />
+    </Key>
+    <Property Name="personID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="personName" Type="nvarchar(max)" />
+    <Property Name="PTCID" Type="int" />
+    <Property Name="csID" Type="int" />
+  </EntityType>
+  <EntityType Name="receiptOfCase_tbl">
+    <Key>
+      <PropertyRef Name="rcID" />
+    </Key>
+    <Property Name="rcID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rcDate" Type="date" />
+    <Property Name="rcJudicialAuthority" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="record_tbl">
+    <Key>
+      <PropertyRef Name="recordID" />
+    </Key>
+    <Property Name="recordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="recordNum" Type="int" />
+  </EntityType>
+  <EntityType Name="service_tbl">
+    <Key>
+      <PropertyRef Name="serviceID" />
+    </Key>
+    <Property Name="serviceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="serviceName" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_appealCouncilOfState_tbl_case_tbl">
+    <End Role="case_tbl" Type="Self.case_tbl" Multiplicity="0..1" />
+    <End Role="appealCouncilOfState_tbl" Type="Self.appealCouncilOfState_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="case_tbl">
+        <PropertyRef Name="caseID" />
+      </Principal>
+      <Dependent Role="appealCouncilOfState_tbl">
+        <PropertyRef Name="caseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_appealSupremeCourt_tbl_case_tbl">
+    <End Role="case_tbl" Type="Self.case_tbl" Multiplicity="0..1" />
+    <End Role="appealSupremeCourt_tbl" Type="Self.appealSupremeCourt_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="case_tbl">
+        <PropertyRef Name="caseID" />
+      </Principal>
+      <Dependent Role="appealSupremeCourt_tbl">
+        <PropertyRef Name="caseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_case_tbl_caseSubject_tbl">
+    <End Role="caseSubject_tbl" Type="Self.caseSubject_tbl" Multiplicity="0..1" />
+    <End Role="case_tbl" Type="Self.case_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="caseSubject_tbl">
+        <PropertyRef Name="csID" />
+      </Principal>
+      <Dependent Role="case_tbl">
+        <PropertyRef Name="csID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_case_tbl_judgmentOnTheCase_tbl">
+    <End Role="judgmentOnTheCase_tbl" Type="Self.judgmentOnTheCase_tbl" Multiplicity="0..1" />
+    <End Role="case_tbl" Type="Self.case_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="judgmentOnTheCase_tbl">
+        <PropertyRef Name="JOCID" />
+      </Principal>
+      <Dependent Role="case_tbl">
+        <PropertyRef Name="JOCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_case_tbl_receiptOfCase_tbl">
+    <End Role="receiptOfCase_tbl" Type="Self.receiptOfCase_tbl" Multiplicity="0..1" />
+    <End Role="case_tbl" Type="Self.case_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="receiptOfCase_tbl">
+        <PropertyRef Name="rcID" />
+      </Principal>
+      <Dependent Role="case_tbl">
+        <PropertyRef Name="rcID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_case_tbl_service_tbl">
+    <End Role="service_tbl" Type="Self.service_tbl" Multiplicity="0..1" />
+    <End Role="case_tbl" Type="Self.case_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="service_tbl">
+        <PropertyRef Name="serviceID" />
+      </Principal>
+      <Dependent Role="case_tbl">
+        <PropertyRef Name="serviceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_caseSubject_tbl_catSub_tbl">
+    <End Role="catSub_tbl" Type="Self.catSub_tbl" Multiplicity="0..1" />
+    <End Role="caseSubject_tbl" Type="Self.caseSubject_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="catSub_tbl">
+        <PropertyRef Name="catSubID" />
+      </Principal>
+      <Dependent Role="caseSubject_tbl">
+        <PropertyRef Name="catSubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_caseSubject_tbl_record_tbl">
+    <End Role="record_tbl" Type="Self.record_tbl" Multiplicity="0..1" />
+    <End Role="caseSubject_tbl" Type="Self.caseSubject_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="record_tbl">
+        <PropertyRef Name="recordID" />
+      </Principal>
+      <Dependent Role="caseSubject_tbl">
+        <PropertyRef Name="recordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_persons_tbl_caseSubject_tbl">
+    <End Role="caseSubject_tbl" Type="Self.caseSubject_tbl" Multiplicity="0..1" />
+    <End Role="persons_tbl" Type="Self.persons_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="caseSubject_tbl">
+        <PropertyRef Name="csID" />
+      </Principal>
+      <Dependent Role="persons_tbl">
+        <PropertyRef Name="csID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_persons_tbl_partiesToTheConflict_tbl">
+    <End Role="partiesToTheConflict_tbl" Type="Self.partiesToTheConflict_tbl" Multiplicity="0..1" />
+    <End Role="persons_tbl" Type="Self.persons_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="partiesToTheConflict_tbl">
+        <PropertyRef Name="PTCID" />
+      </Principal>
+      <Dependent Role="persons_tbl">
+        <PropertyRef Name="PTCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="fouziaDBModelStoreContainer">
+    <EntitySet Name="appealCouncilOfState_tbl" EntityType="Self.appealCouncilOfState_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="appealSupremeCourt_tbl" EntityType="Self.appealSupremeCourt_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="case_tbl" EntityType="Self.case_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="caseSubject_tbl" EntityType="Self.caseSubject_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="catSub_tbl" EntityType="Self.catSub_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="judgmentOnTheCase_tbl" EntityType="Self.judgmentOnTheCase_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="partiesToTheConflict_tbl" EntityType="Self.partiesToTheConflict_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="persons_tbl" EntityType="Self.persons_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="receiptOfCase_tbl" EntityType="Self.receiptOfCase_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="record_tbl" EntityType="Self.record_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="service_tbl" EntityType="Self.service_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_appealCouncilOfState_tbl_case_tbl" Association="Self.FK_appealCouncilOfState_tbl_case_tbl">
+      <End Role="case_tbl" EntitySet="case_tbl" />
+      <End Role="appealCouncilOfState_tbl" EntitySet="appealCouncilOfState_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_appealSupremeCourt_tbl_case_tbl" Association="Self.FK_appealSupremeCourt_tbl_case_tbl">
+      <End Role="case_tbl" EntitySet="case_tbl" />
+      <End Role="appealSupremeCourt_tbl" EntitySet="appealSupremeCourt_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_case_tbl_caseSubject_tbl" Association="Self.FK_case_tbl_caseSubject_tbl">
+      <End Role="caseSubject_tbl" EntitySet="caseSubject_tbl" />
+      <End Role="case_tbl" EntitySet="case_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_case_tbl_judgmentOnTheCase_tbl" Association="Self.FK_case_tbl_judgmentOnTheCase_tbl">
+      <End Role="judgmentOnTheCase_tbl" EntitySet="judgmentOnTheCase_tbl" />
+      <End Role="case_tbl" EntitySet="case_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_case_tbl_receiptOfCase_tbl" Association="Self.FK_case_tbl_receiptOfCase_tbl">
+      <End Role="receiptOfCase_tbl" EntitySet="receiptOfCase_tbl" />
+      <End Role="case_tbl" EntitySet="case_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_case_tbl_service_tbl" Association="Self.FK_case_tbl_service_tbl">
+      <End Role="service_tbl" EntitySet="service_tbl" />
+      <End Role="case_tbl" EntitySet="case_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_caseSubject_tbl_catSub_tbl" Association="Self.FK_caseSubject_tbl_catSub_tbl">
+      <End Role="catSub_tbl" EntitySet="catSub_tbl" />
+      <End Role="caseSubject_tbl" EntitySet="caseSubject_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_caseSubject_tbl_record_tbl" Association="Self.FK_caseSubject_tbl_record_tbl">
+      <End Role="record_tbl" EntitySet="record_tbl" />
+      <End Role="caseSubject_tbl" EntitySet="caseSubject_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_persons_tbl_caseSubject_tbl" Association="Self.FK_persons_tbl_caseSubject_tbl">
+      <End Role="caseSubject_tbl" EntitySet="caseSubject_tbl" />
+      <End Role="persons_tbl" EntitySet="persons_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_persons_tbl_partiesToTheConflict_tbl" Association="Self.FK_persons_tbl_partiesToTheConflict_tbl">
+      <End Role="partiesToTheConflict_tbl" EntitySet="partiesToTheConflict_tbl" />
+      <End Role="persons_tbl" EntitySet="persons_tbl" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4BAC571-7893-4BE6-BB2D-8725A5876F4F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FouziaApp</RootNamespace>
+    <AssemblyName>FouziaApp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCase.Designer.cs">
+      <DependentUpon>AddCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="appealCouncilOfState_tbl.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="appealSupremeCourt_tbl.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="caseSubject_tbl.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="case_tbl.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catSub_tbl.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddAppealToTheCouncil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddAppealToTheCouncil.Designer.cs">
+      <DependentUpon>frmAddAppealToTheCouncil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddAppealToTheSupremeCourt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddAppealToTheSupremeCourt.Designer.cs">
+      <DependentUpon>frmAddAppealToTheSupremeCourt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddCaseSubj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddCaseSubj.Designer.cs">
+      <DependentUpon>frmAddCaseSubj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddJOC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddJOC.Designer.cs">
+      <DependentUpon>frmAddJOC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddPerson.Designer.cs">
+      <DependentUpon>frmAddPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddRecord.Designer.cs">
+      <DependentUpon>frmAddRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddService.Designer.cs">
+      <DependentUpon>frmAddService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCatSub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCatSub.Designer.cs">
+      <DependentUpon>frmCatSub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReceiptOfCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReceiptOfCase.Designer.cs">
+      <DependentUpon>frmReceiptOfCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStatAppeal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatAppeal.Designer.cs">
+      <DependentUpon>frmStatAppeal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStatCatSub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatCatSub.Designer.cs">
+      <DependentUpon>frmStatCatSub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStatJudgmentAuthority.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatJudgmentAuthority.Designer.cs">
+      <DependentUpon>frmStatJudgmentAuthority.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStatJudgmentOnTheCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatJudgmentOnTheCase.Designer.cs">
+      <DependentUpon>frmStatJudgmentOnTheCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="judgmentOnTheCase_tbl.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="partiesToTheConflict_tbl.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="persons_tbl.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="receiptOfCase_tbl.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="record_tbl.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="service_tbl.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ucCases.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCases.Designer.cs">
+      <DependentUpon>ucCases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucDisputes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDisputes.Designer.cs">
+      <DependentUpon>ucDisputes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucStatistics.Designer.cs">
+      <DependentUpon>ucStatistics.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddCase.resx">
+      <DependentUpon>AddCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddAppealToTheCouncil.resx">
+      <DependentUpon>frmAddAppealToTheCouncil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddAppealToTheSupremeCourt.resx">
+      <DependentUpon>frmAddAppealToTheSupremeCourt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddCaseSubj.resx">
+      <DependentUpon>frmAddCaseSubj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddJOC.resx">
+      <DependentUpon>frmAddJOC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddPerson.resx">
+      <DependentUpon>frmAddPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddRecord.resx">
+      <DependentUpon>frmAddRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddService.resx">
+      <DependentUpon>frmAddService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCatSub.resx">
+      <DependentUpon>frmCatSub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReceiptOfCase.resx">
+      <DependentUpon>frmReceiptOfCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStatAppeal.resx">
+      <DependentUpon>frmStatAppeal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStatCatSub.resx">
+      <DependentUpon>frmStatCatSub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStatJudgmentAuthority.resx">
+      <DependentUpon>frmStatJudgmentAuthority.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStatJudgmentOnTheCase.resx">
+      <DependentUpon>frmStatJudgmentOnTheCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCases.resx">
+      <DependentUpon>ucCases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ucDisputes.resx">
+      <DependentUpon>ucDisputes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucStatistics.resx">
+      <DependentUpon>ucStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\appealCouncilOfState_tbl1.datasource" />
+    <None Include="Properties\DataSources\appealSupremeCourt_tbl1.datasource" />
+    <None Include="Properties\DataSources\caseSubject_tbl1.datasource" />
+    <None Include="Properties\DataSources\case_tbl1.datasource" />
+    <None Include="Properties\DataSources\catSub_tbl.datasource" />
+    <None Include="Properties\DataSources\judgmentOnTheCase_tbl.datasource" />
+    <None Include="Properties\DataSources\partiesToTheConflict_tbl1.datasource" />
+    <None Include="Properties\DataSources\receiptOfCase_tbl1.datasource" />
+    <None Include="Properties\DataSources\record_tbl.datasource" />
+    <None Include="Properties\DataSources\service_tbl1.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\land2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beforDespute1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\appeal.png" />
+    <None Include="Resources\verdict.png" />
+    <None Include="Resources\subject.png" />
+    <None Include="Resources\judgment Authority.png" />
+    <None Include="Resources\analystic.png" />
+    <None Include="Resources\pdf.png" />
+    <None Include="Resources\check1.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\check.png" />
+    <None Include="Resources\person.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\plus1.png" />
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

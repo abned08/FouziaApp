@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="fouziaDBModelStoreContainer" CdmEntityContainer="fouziaDBEntities">
+    <EntitySetMapping Name="appealCouncilOfState_tbl">
+      <EntityTypeMapping TypeName="fouziaDBModel.appealCouncilOfState_tbl">
+        <MappingFragment StoreEntitySet="appealCouncilOfState_tbl">
+          <ScalarProperty Name="caseID" ColumnName="caseID" />
+          <ScalarProperty Name="judgmentOfAppeal" ColumnName="judgmentOfAppeal" />
+          <ScalarProperty Name="reportNum" ColumnName="reportNum" />
+          <ScalarProperty Name="dateOfReport" ColumnName="dateOfReport" />
+          <ScalarProperty Name="appealNum" ColumnName="appealNum" />
+          <ScalarProperty Name="dateOfAppeal" ColumnName="dateOfAppeal" />
+          <ScalarProperty Name="appealID" ColumnName="appealID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="appealSupremeCourt_tbl">
+      <EntityTypeMapping TypeName="fouziaDBModel.appealSupremeCourt_tbl">
+        <MappingFragment StoreEntitySet="appealSupremeCourt_tbl">
+          <ScalarProperty Name="caseID" ColumnName="caseID" />
+          <ScalarProperty Name="judgmentOfAppeal" ColumnName="judgmentOfAppeal" />
+          <ScalarProperty Name="reportNum" ColumnName="reportNum" />
+          <ScalarProperty Name="dateOfReoprt" ColumnName="dateOfReoprt" />
+          <ScalarProperty Name="appealNum" ColumnName="appealNum" />
+          <ScalarProperty Name="dateOfAppeal" ColumnName="dateOfAppeal" />
+          <ScalarProperty Name="appealID" ColumnName="appealID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="case_tbl">
+      <EntityTypeMapping TypeName="fouziaDBModel.case_tbl">
+        <MappingFragment StoreEntitySet="case_tbl">
+          <ScalarProperty Name="JOCID" ColumnName="JOCID" />
+          <ScalarProperty Name="filePath" ColumnName="filePath" />
+          <ScalarProperty Name="rcID" ColumnName="rcID" />
+          <ScalarProperty Name="serviceID" ColumnName="serviceID" />
+          <ScalarProperty Name="csID" ColumnName="csID" />
+          <ScalarProperty Name="dateOfReplyToTheExpert" ColumnName="dateOfReplyToTheExpert" />
+          <ScalarProperty Name="dateOfTheExpertsCall" ColumnName="dateOfTheExpertsCall" />
+          <ScalarProperty Name="finished" ColumnName="finished" />
+          <ScalarProperty Name="judgment" ColumnName="judgment" />
+          <ScalarProperty Name="dateOfTheJudgment" ColumnName="dateOfTheJudgment" />
+          <ScalarProperty Name="dateOfTheReply" ColumnName="dateOfTheReply" />
+          <ScalarProperty Name="dateOfTheOpenPetition" ColumnName="dateOfTheOpenPetition" />
+          <ScalarProperty Name="caseNum" ColumnName="caseNum" />
+          <ScalarProperty Name="caseID" ColumnName="caseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="caseSubject_tbl">
+      <EntityTypeMapping TypeName="fouziaDBModel.caseSubject_tbl">
+        <MappingFragment StoreEntitySet="caseSubject_tbl">
+          <ScalarProperty Name="catSubID" ColumnName="catSubID" />
+          <ScalarProperty Name="recordID" ColumnName="recordID" />
+          <ScalarProperty Name="csTown" ColumnName="csTown" />
+          <ScalarProperty Name="csAdress" ColumnName="csAdress" />
+          <ScalarProperty Name="csLot" ColumnName="csLot" />
+          <ScalarProperty Name="csIlot" ColumnName="csIlot" />
+          <ScalarProperty Name="csSec" ColumnName="csSec" />
+          <ScalarProperty Name="csID" ColumnName="csID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catSub_tbl">
+      <EntityTypeMapping TypeName="fouziaDBModel.catSub_tbl">
+        <MappingFragment StoreEntitySet="catSub_tbl">
+          <ScalarProperty Name="catSubName" ColumnName="catSubName" />
+          <ScalarProperty Name="catSubID" ColumnName="catSubID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="judgmentOnTheCase_tbl">
+      <EntityTypeMapping TypeName="fouziaDBModel.judgmentOnTheCase_tbl">
+        <MappingFragment StoreEntitySet="judgmentOnTheCase_tbl">
+          <ScalarProperty Name="JOCName" ColumnName="JOCName" />
+          <ScalarProperty Name="JOCID" ColumnName="JOCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="partiesToTheConflict_tbl">
+      <EntityTypeMapping TypeName="fouziaDBModel.partiesToTheConflict_tbl">
+        <MappingFragment StoreEntitySet="partiesToTheConflict_tbl">
+          <ScalarProperty Name="PTCName" ColumnName="PTCName" />
+          <ScalarProperty Name="PTCID" ColumnName="PTCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="persons_tbl">
+      <EntityTypeMapping TypeName="fouziaDBModel.persons_tbl">
+        <MappingFragment StoreEntitySet="persons_tbl">
+          <ScalarProperty Name="csID" ColumnName="csID" />
+          <ScalarProperty Name="PTCID" ColumnName="PTCID" />
+          <ScalarProperty Name="personName" ColumnName="personName" />
+          <ScalarProperty Name="personID" ColumnName="personID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="receiptOfCase_tbl">
+      <EntityTypeMapping TypeName="fouziaDBModel.receiptOfCase_tbl">
+        <MappingFragment StoreEntitySet="receiptOfCase_tbl">
+          <ScalarProperty Name="rcJudicialAuthority" ColumnName="rcJudicialAuthority" />
+          <ScalarProperty Name="rcDate" ColumnName="rcDate" />
+          <ScalarProperty Name="rcID" ColumnName="rcID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="record_tbl">
+      <EntityTypeMapping TypeName="fouziaDBModel.record_tbl">
+        <MappingFragment StoreEntitySet="record_tbl">
+          <ScalarProperty Name="recordNum" ColumnName="recordNum" />
+          <ScalarProperty Name="recordID" ColumnName="recordID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="service_tbl">
+      <EntityTypeMapping TypeName="fouziaDBModel.service_tbl">
+        <MappingFragment StoreEntitySet="service_tbl">
+          <ScalarProperty Name="serviceName" ColumnName="serviceName" />
+          <ScalarProperty Name="serviceID" ColumnName="serviceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="fouziaDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

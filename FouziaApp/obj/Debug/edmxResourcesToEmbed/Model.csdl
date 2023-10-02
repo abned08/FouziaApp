@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fouziaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="fouziaDBEntities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="appealCouncilOfState_tbl" EntityType="fouziaDBModel.appealCouncilOfState_tbl" />
+    <EntitySet Name="appealSupremeCourt_tbl" EntityType="fouziaDBModel.appealSupremeCourt_tbl" />
+    <EntitySet Name="case_tbl" EntityType="fouziaDBModel.case_tbl" />
+    <EntitySet Name="caseSubject_tbl" EntityType="fouziaDBModel.caseSubject_tbl" />
+    <EntitySet Name="catSub_tbl" EntityType="fouziaDBModel.catSub_tbl" />
+    <EntitySet Name="judgmentOnTheCase_tbl" EntityType="fouziaDBModel.judgmentOnTheCase_tbl" />
+    <EntitySet Name="partiesToTheConflict_tbl" EntityType="fouziaDBModel.partiesToTheConflict_tbl" />
+    <EntitySet Name="persons_tbl" EntityType="fouziaDBModel.persons_tbl" />
+    <EntitySet Name="receiptOfCase_tbl" EntityType="fouziaDBModel.receiptOfCase_tbl" />
+    <EntitySet Name="record_tbl" EntityType="fouziaDBModel.record_tbl" />
+    <EntitySet Name="service_tbl" EntityType="fouziaDBModel.service_tbl" />
+    <EntitySet Name="sysdiagrams" EntityType="fouziaDBModel.sysdiagram" />
+    <AssociationSet Name="FK_appealCouncilOfState_tbl_case_tbl" Association="fouziaDBModel.FK_appealCouncilOfState_tbl_case_tbl">
+      <End Role="case_tbl" EntitySet="case_tbl" />
+      <End Role="appealCouncilOfState_tbl" EntitySet="appealCouncilOfState_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_appealSupremeCourt_tbl_case_tbl" Association="fouziaDBModel.FK_appealSupremeCourt_tbl_case_tbl">
+      <End Role="case_tbl" EntitySet="case_tbl" />
+      <End Role="appealSupremeCourt_tbl" EntitySet="appealSupremeCourt_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_case_tbl_caseSubject_tbl" Association="fouziaDBModel.FK_case_tbl_caseSubject_tbl">
+      <End Role="caseSubject_tbl" EntitySet="caseSubject_tbl" />
+      <End Role="case_tbl" EntitySet="case_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_case_tbl_judgmentOnTheCase_tbl" Association="fouziaDBModel.FK_case_tbl_judgmentOnTheCase_tbl">
+      <End Role="judgmentOnTheCase_tbl" EntitySet="judgmentOnTheCase_tbl" />
+      <End Role="case_tbl" EntitySet="case_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_case_tbl_receiptOfCase_tbl" Association="fouziaDBModel.FK_case_tbl_receiptOfCase_tbl">
+      <End Role="receiptOfCase_tbl" EntitySet="receiptOfCase_tbl" />
+      <End Role="case_tbl" EntitySet="case_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_case_tbl_service_tbl" Association="fouziaDBModel.FK_case_tbl_service_tbl">
+      <End Role="service_tbl" EntitySet="service_tbl" />
+      <End Role="case_tbl" EntitySet="case_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_caseSubject_tbl_catSub_tbl" Association="fouziaDBModel.FK_caseSubject_tbl_catSub_tbl">
+      <End Role="catSub_tbl" EntitySet="catSub_tbl" />
+      <End Role="caseSubject_tbl" EntitySet="caseSubject_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_caseSubject_tbl_record_tbl" Association="fouziaDBModel.FK_caseSubject_tbl_record_tbl">
+      <End Role="record_tbl" EntitySet="record_tbl" />
+      <End Role="caseSubject_tbl" EntitySet="caseSubject_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_persons_tbl_caseSubject_tbl" Association="fouziaDBModel.FK_persons_tbl_caseSubject_tbl">
+      <End Role="caseSubject_tbl" EntitySet="caseSubject_tbl" />
+      <End Role="persons_tbl" EntitySet="persons_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_persons_tbl_partiesToTheConflict_tbl" Association="fouziaDBModel.FK_persons_tbl_partiesToTheConflict_tbl">
+      <End Role="partiesToTheConflict_tbl" EntitySet="partiesToTheConflict_tbl" />
+      <End Role="persons_tbl" EntitySet="persons_tbl" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="appealCouncilOfState_tbl">
+    <Key>
+      <PropertyRef Name="appealID" />
+    </Key>
+    <Property Name="appealID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dateOfAppeal" Type="DateTime" Precision="0" />
+    <Property Name="appealNum" Type="Int32" />
+    <Property Name="dateOfReport" Type="DateTime" Precision="0" />
+    <Property Name="reportNum" Type="Int32" />
+    <Property Name="judgmentOfAppeal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="caseID" Type="Int32" />
+    <NavigationProperty Name="case_tbl" Relationship="fouziaDBModel.FK_appealCouncilOfState_tbl_case_tbl" FromRole="appealCouncilOfState_tbl" ToRole="case_tbl" />
+  </EntityType>
+  <EntityType Name="appealSupremeCourt_tbl">
+    <Key>
+      <PropertyRef Name="appealID" />
+    </Key>
+    <Property Name="appealID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dateOfAppeal" Type="DateTime" Precision="0" />
+    <Property Name="appealNum" Type="Int32" />
+    <Property Name="dateOfReoprt" Type="DateTime" Precision="0" />
+    <Property Name="reportNum" Type="Int32" />
+    <Property Name="judgmentOfAppeal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="caseID" Type="Int32" />
+    <NavigationProperty Name="case_tbl" Relationship="fouziaDBModel.FK_appealSupremeCourt_tbl_case_tbl" FromRole="appealSupremeCourt_tbl" ToRole="case_tbl" />
+  </EntityType>
+  <EntityType Name="case_tbl">
+    <Key>
+      <PropertyRef Name="caseID" />
+    </Key>
+    <Property Name="caseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="caseNum" Type="Int32" />
+    <Property Name="dateOfTheOpenPetition" Type="DateTime" Precision="0" />
+    <Property Name="dateOfTheReply" Type="DateTime" Precision="0" />
+    <Property Name="dateOfTheJudgment" Type="DateTime" Precision="0" />
+    <Property Name="judgment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="finished" Type="Boolean" />
+    <Property Name="dateOfTheExpertsCall" Type="DateTime" Precision="0" />
+    <Property Name="dateOfReplyToTheExpert" Type="DateTime" Precision="0" />
+    <Property Name="csID" Type="Int32" />
+    <Property Name="serviceID" Type="Int32" />
+    <Property Name="rcID" Type="Int32" />
+    <Property Name="filePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JOCID" Type="Int32" />
+    <NavigationProperty Name="appealCouncilOfState_tbl" Relationship="fouziaDBModel.FK_appealCouncilOfState_tbl_case_tbl" FromRole="case_tbl" ToRole="appealCouncilOfState_tbl" />
+    <NavigationProperty Name="appealSupremeCourt_tbl" Relationship="fouziaDBModel.FK_appealSupremeCourt_tbl_case_tbl" FromRole="case_tbl" ToRole="appealSupremeCourt_tbl" />
+    <NavigationProperty Name="caseSubject_tbl" Relationship="fouziaDBModel.FK_case_tbl_caseSubject_tbl" FromRole="case_tbl" ToRole="caseSubject_tbl" />
+    <NavigationProperty Name="judgmentOnTheCase_tbl" Relationship="fouziaDBModel.FK_case_tbl_judgmentOnTheCase_tbl" FromRole="case_tbl" ToRole="judgmentOnTheCase_tbl" />
+    <NavigationProperty Name="receiptOfCase_tbl" Relationship="fouziaDBModel.FK_case_tbl_receiptOfCase_tbl" FromRole="case_tbl" ToRole="receiptOfCase_tbl" />
+    <NavigationProperty Name="service_tbl" Relationship="fouziaDBModel.FK_case_tbl_service_tbl" FromRole="case_tbl" ToRole="service_tbl" />
+  </EntityType>
+  <EntityType Name="caseSubject_tbl">
+    <Key>
+      <PropertyRef Name="csID" />
+    </Key>
+    <Property Name="csID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="csSec" Type="Int32" />
+    <Property Name="csIlot" Type="Int32" />
+    <Property Name="csLot" Type="Int32" />
+    <Property Name="csAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="csTown" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="recordID" Type="Int32" />
+    <Property Name="catSubID" Type="Int32" />
+    <NavigationProperty Name="case_tbl" Relationship="fouziaDBModel.FK_case_tbl_caseSubject_tbl" FromRole="caseSubject_tbl" ToRole="case_tbl" />
+    <NavigationProperty Name="catSub_tbl" Relationship="fouziaDBModel.FK_caseSubject_tbl_catSub_tbl" FromRole="caseSubject_tbl" ToRole="catSub_tbl" />
+    <NavigationProperty Name="record_tbl" Relationship="fouziaDBModel.FK_caseSubject_tbl_record_tbl" FromRole="caseSubject_tbl" ToRole="record_tbl" />
+    <NavigationProperty Name="persons_tbl" Relationship="fouziaDBModel.FK_persons_tbl_caseSubject_tbl" FromRole="caseSubject_tbl" ToRole="persons_tbl" />
+  </EntityType>
+  <EntityType Name="catSub_tbl">
+    <Key>
+      <PropertyRef Name="catSubID" />
+    </Key>
+    <Property Name="catSubID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="catSubName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="caseSubject_tbl" Relationship="fouziaDBModel.FK_caseSubject_tbl_catSub_tbl" FromRole="catSub_tbl" ToRole="caseSubject_tbl" />
+  </EntityType>
+  <EntityType Name="judgmentOnTheCase_tbl">
+    <Key>
+      <PropertyRef Name="JOCID" />
+    </Key>
+    <Property Name="JOCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JOCName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="case_tbl" Relationship="fouziaDBModel.FK_case_tbl_judgmentOnTheCase_tbl" FromRole="judgmentOnTheCase_tbl" ToRole="case_tbl" />
+  </EntityType>
+  <EntityType Name="partiesToTheConflict_tbl">
+    <Key>
+      <PropertyRef Name="PTCID" />
+    </Key>
+    <Property Name="PTCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PTCName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="persons_tbl" Relationship="fouziaDBModel.FK_persons_tbl_partiesToTheConflict_tbl" FromRole="partiesToTheConflict_tbl" ToRole="persons_tbl" />
+  </EntityType>
+  <EntityType Name="persons_tbl">
+    <Key>
+      <PropertyRef Name="personID" />
+    </Key>
+    <Property Name="personID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="personName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PTCID" Type="Int32" />
+    <Property Name="csID" Type="Int32" />
+    <NavigationProperty Name="caseSubject_tbl" Relationship="fouziaDBModel.FK_persons_tbl_caseSubject_tbl" FromRole="persons_tbl" ToRole="caseSubject_tbl" />
+    <NavigationProperty Name="partiesToTheConflict_tbl" Relationship="fouziaDBModel.FK_persons_tbl_partiesToTheConflict_tbl" FromRole="persons_tbl" ToRole="partiesToTheConflict_tbl" />
+  </EntityType>
+  <EntityType Name="receiptOfCase_tbl">
+    <Key>
+      <PropertyRef Name="rcID" />
+    </Key>
+    <Property Name="rcID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rcDate" Type="DateTime" Precision="0" />
+    <Property Name="rcJudicialAuthority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="case_tbl" Relationship="fouziaDBModel.FK_case_tbl_receiptOfCase_tbl" FromRole="receiptOfCase_tbl" ToRole="case_tbl" />
+  </EntityType>
+  <EntityType Name="record_tbl">
+    <Key>
+      <PropertyRef Name="recordID" />
+    </Key>
+    <Property Name="recordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="recordNum" Type="Int32" />
+    <NavigationProperty Name="caseSubject_tbl" Relationship="fouziaDBModel.FK_caseSubject_tbl_record_tbl" FromRole="record_tbl" ToRole="caseSubject_tbl" />
+  </EntityType>
+  <EntityType Name="service_tbl">
+    <Key>
+      <PropertyRef Name="serviceID" />
+    </Key>
+    <Property Name="serviceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="serviceName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="case_tbl" Relationship="fouziaDBModel.FK_case_tbl_service_tbl" FromRole="service_tbl" ToRole="case_tbl" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_appealCouncilOfState_tbl_case_tbl">
+    <End Type="fouziaDBModel.case_tbl" Role="case_tbl" Multiplicity="0..1" />
+    <End Type="fouziaDBModel.appealCouncilOfState_tbl" Role="appealCouncilOfState_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="case_tbl">
+        <PropertyRef Name="caseID" />
+      </Principal>
+      <Dependent Role="appealCouncilOfState_tbl">
+        <PropertyRef Name="caseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_appealSupremeCourt_tbl_case_tbl">
+    <End Type="fouziaDBModel.case_tbl" Role="case_tbl" Multiplicity="0..1" />
+    <End Type="fouziaDBModel.appealSupremeCourt_tbl" Role="appealSupremeCourt_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="case_tbl">
+        <PropertyRef Name="caseID" />
+      </Principal>
+      <Dependent Role="appealSupremeCourt_tbl">
+        <PropertyRef Name="caseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_case_tbl_caseSubject_tbl">
+    <End Type="fouziaDBModel.caseSubject_tbl" Role="caseSubject_tbl" Multiplicity="0..1" />
+    <End Type="fouziaDBModel.case_tbl" Role="case_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="caseSubject_tbl">
+        <PropertyRef Name="csID" />
+      </Principal>
+      <Dependent Role="case_tbl">
+        <PropertyRef Name="csID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_case_tbl_judgmentOnTheCase_tbl">
+    <End Type="fouziaDBModel.judgmentOnTheCase_tbl" Role="judgmentOnTheCase_tbl" Multiplicity="0..1" />
+    <End Type="fouziaDBModel.case_tbl" Role="case_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="judgmentOnTheCase_tbl">
+        <PropertyRef Name="JOCID" />
+      </Principal>
+      <Dependent Role="case_tbl">
+        <PropertyRef Name="JOCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_case_tbl_receiptOfCase_tbl">
+    <End Type="fouziaDBModel.receiptOfCase_tbl" Role="receiptOfCase_tbl" Multiplicity="0..1" />
+    <End Type="fouziaDBModel.case_tbl" Role="case_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="receiptOfCase_tbl">
+        <PropertyRef Name="rcID" />
+      </Principal>
+      <Dependent Role="case_tbl">
+        <PropertyRef Name="rcID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_case_tbl_service_tbl">
+    <End Type="fouziaDBModel.service_tbl" Role="service_tbl" Multiplicity="0..1" />
+    <End Type="fouziaDBModel.case_tbl" Role="case_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="service_tbl">
+        <PropertyRef Name="serviceID" />
+      </Principal>
+      <Dependent Role="case_tbl">
+        <PropertyRef Name="serviceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_caseSubject_tbl_catSub_tbl">
+    <End Type="fouziaDBModel.catSub_tbl" Role="catSub_tbl" Multiplicity="0..1" />
+    <End Type="fouziaDBModel.caseSubject_tbl" Role="caseSubject_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="catSub_tbl">
+        <PropertyRef Name="catSubID" />
+      </Principal>
+      <Dependent Role="caseSubject_tbl">
+        <PropertyRef Name="catSubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_caseSubject_tbl_record_tbl">
+    <End Type="fouziaDBModel.record_tbl" Role="record_tbl" Multiplicity="0..1" />
+    <End Type="fouziaDBModel.caseSubject_tbl" Role="caseSubject_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="record_tbl">
+        <PropertyRef Name="recordID" />
+      </Principal>
+      <Dependent Role="caseSubject_tbl">
+        <PropertyRef Name="recordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_persons_tbl_caseSubject_tbl">
+    <End Type="fouziaDBModel.caseSubject_tbl" Role="caseSubject_tbl" Multiplicity="0..1" />
+    <End Type="fouziaDBModel.persons_tbl" Role="persons_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="caseSubject_tbl">
+        <PropertyRef Name="csID" />
+      </Principal>
+      <Dependent Role="persons_tbl">
+        <PropertyRef Name="csID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_persons_tbl_partiesToTheConflict_tbl">
+    <End Type="fouziaDBModel.partiesToTheConflict_tbl" Role="partiesToTheConflict_tbl" Multiplicity="0..1" />
+    <End Type="fouziaDBModel.persons_tbl" Role="persons_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="partiesToTheConflict_tbl">
+        <PropertyRef Name="PTCID" />
+      </Principal>
+      <Dependent Role="persons_tbl">
+        <PropertyRef Name="PTCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
